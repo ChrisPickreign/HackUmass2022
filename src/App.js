@@ -1,4 +1,6 @@
 import React from "react";
+import TypewriterComponent from "typewriter-effect";
+
 
 function App() {
   const data = require("./words_dictionary.json");
@@ -21,8 +23,9 @@ function App() {
 
   return (
     <div>
-      <button>start</button>
       <p>{tempString}</p>
+      <textarea></textarea>
+      <TypewriterComponent/>
     </div>
   )
 }
