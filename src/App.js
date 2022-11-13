@@ -1,7 +1,6 @@
 import React from "react";
 import TypewriterComponent from "typewriter-effect";
 
-
 function App() {
   const data = require("./words_dictionary.json");
   let wordArr = Object.keys(data);
@@ -12,7 +11,7 @@ function App() {
   function selectWords(wordArr) {
     let returnArr = [];
     let indTracker = new Set();
-    while (returnArr.length < 50) {
+    while (returnArr.length < 10) {
       let indVal = Math.floor(Math.random() * wordArr.length);
       if (!indTracker.has(indVal)) {
         returnArr.push(wordArr[indVal]);
@@ -24,21 +23,45 @@ function App() {
 
   let index = 0;
 
+  // function handleKeyPress(e) {
+  //   let key = e.key;
+  //   let corKey = tempString.charAt(index);
+  //   if (key === " " && corKey !== " ") {
+  //     return;
+  //   }
+  //   console.log(key);
+  //   console.log(corKey === key);
+  //   console.log("keyPress: " + index);
+  //   index = index+1;
+  // }
+  function populateArray(arr) {
+    return arr.map(wordObj);
+  }
+
+  function wordObj(x) {
+    return {word: x, isCorrect: false, k: 0};
+  }
+
   function handleKeyPress(e) {
     let key = e.key;
-    let corKey = tempString.charAt(index);
-    if (key === " " && corKey !== " ") {
-      return;
-    }
+    console.log(words);
+    let obj = words[index];
+    let corKey = obj.word.charAt(obj.k);
+    // if (key === " " && corKey !== " ") {
+    //   return;
+    // }
     console.log(key);
     console.log(corKey === key);
     console.log("keyPress: " + index);
-    index = index+1;
+    obj.k += 1;
+    if (obj.k === obj.word.length-1) {
+
+    }
   }
 
   function handleKeyDown(e) {
     if (e.key === 'Backspace' && index > 0) {
-      index = index-1;
+      index = index - 1;
       console.log("keyDown: " + index)
     }
   }
@@ -47,7 +70,9 @@ function App() {
     return arr.join(" ");
   }
 
-  let tempString = arrToString(selectWords(easyWords));
+  let ezWords = selectWords(easyWords);
+  let words = populateArray(ezWords);
+  let tempString = arrToString(ezWords);
 
   return (
     <div>
@@ -59,7 +84,7 @@ function App() {
       </h1>
       <p>{tempString}</p>
       <p>{"" + index + "/" + 50}</p>
-      <input type="text" onKeyPress={(e) => handleKeyPress(e)} onKeyDown={(e) => handleKeyDown(e)}/>
+      <input type="text" onKeyPress={(e) => handleKeyPress(e)} onKeyDown={(e) => handleKeyDown(e)} />
     </div>
   )
 }
