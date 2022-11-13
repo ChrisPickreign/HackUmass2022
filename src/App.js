@@ -33,19 +33,19 @@ function App() {
   }
 
   function wordObj(x) {
-    return {word: x, isCorrect: false, k: 0};
+    return { word: x, isCorrect: false, k: 0 };
   }
 
   function handleKeyPress(e) {
     let key = e.key;
     let obj = words[index];
     let corKey = obj.word.charAt(obj.k);
-     if (key === " " && obj.k >=0) {
-        if (obj.k === 0){
-          return;
-        }
-       ++index;
-       return;
+    if (key === " " && obj.k >= 0) {
+      if (obj.k === 0) {
+        return;
+      }
+      ++index;
+      return;
     }
     inputArr[index] = inputArr[index].concat(key)
     console.log(key);
@@ -59,7 +59,7 @@ function App() {
     let obj = words[index];
     if (e.key === 'Backspace' && obj.k > 0) {
       --obj.k;
-      inputArr[index] = inputArr[index].slice(0,-1);
+      inputArr[index] = inputArr[index].slice(0, -1);
       console.log("keyDown: " + index)
       console.log(inputArr);
     }
@@ -68,15 +68,15 @@ function App() {
   function arrToString(arr) {
     return arr.join(" ");
   }
-  let pause = 1000; 
+  let pause = 1000;
   let ezWords = selectWords(easyWords);
   let words = populateArray(ezWords);
   let tempString = arrToString(ezWords);
 
-  function valUntilK(k, index){
+  function valUntilK(k, index) {
     let returnVal = true;
-    for (let i =0; i<=k; ++i){
-      if (inputArr[index].chartAt(i) !== words[index].word.charAt(i)){
+    for (let i = 0; i <= k; ++i) {
+      if (inputArr[index].chartAt(i) !== words[index].word.charAt(i)) {
         returnVal = false;
       }
     }
@@ -88,24 +88,24 @@ function App() {
       <h1><TypewriterComponent
         onInit={(typewriter) =>
           typewriter.typeString("finkytpye").start().pauseFor(pause).deleteAll()
-          .typeString('flimsytype').start().pauseFor(pause).deleteAll()
-          .typeString('flimdtype').start().pauseFor(pause).deleteAll()
-          .typeString('flankytype').start().pauseFor(pause).deleteAll()
-          .typeString('flirtytype').start().pauseFor(pause).deleteAll()
-          .typeString('fliarsytype').start().pauseFor(pause).deleteAll()
-          .typeString('flaetytype').start().pauseFor(pause).deleteAll()
-          .typeString('flintytype').start().pauseFor(pause).deleteAll()
-          .typeString('flype').start().pauseFor(pause).deleteAll()
-          .typeString('funkytype').start()
+            .typeString('flimsytype').start().pauseFor(pause).deleteAll()
+            .typeString('flimdtype').start().pauseFor(pause).deleteAll()
+            .typeString('flankytype').start().pauseFor(pause).deleteAll()
+            .typeString('flirtytype').start().pauseFor(pause).deleteAll()
+            .typeString('fliarsytype').start().pauseFor(pause).deleteAll()
+            .typeString('flaetytype').start().pauseFor(pause).deleteAll()
+            .typeString('flintytype').start().pauseFor(pause).deleteAll()
+            .typeString('flype').start().pauseFor(pause).deleteAll()
+            .typeString('funkytype').start()
         }
       />
       </h1>
       <div>
         <p>{tempString}</p>
-        <textarea class = "text-box" type="text" onKeyPress={(e) => handleKeyPress(e)} onKeyDown={(e) => handleKeyDown(e)} autofocus></textarea>
+        <textarea className="text-box" type="text" onKeyPress={(e) => handleKeyPress(e)} onKeyDown={(e) => handleKeyDown(e)} autoFocus></textarea>
       </div>
       <div>
-        <p1 class = "counter">{"" + index + "/" + 50}</p1>
+        <p className="counter">{"" + index + "/" + 50}</p>
       </div>
     </div>
   )

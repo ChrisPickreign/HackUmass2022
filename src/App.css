@@ -31,7 +31,7 @@ p{
    resize: none;
 }
 
-p1{
+.counter{
     font-size: 40px;
     color: black;
     font-family: Georgia, 'Times New Roman', Times, serif;
