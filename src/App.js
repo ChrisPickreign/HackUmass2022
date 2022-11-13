@@ -102,10 +102,13 @@ function App() {
       </h1>
       <div>
         <p>{tempString}</p>
-        <textarea className="text-box" type="text" onKeyPress={(e) => handleKeyPress(e)} onKeyDown={(e) => handleKeyDown(e)} autoFocus></textarea>
+        <input className="text-box" type="text" onKeyPress={(e) => handleKeyPress(e)} onKeyDown={(e) => handleKeyDown(e)} autoFocus></input>
       </div>
       <div>
         <p className="counter">{"" + index + "/" + 50}</p>
+      </div>
+      <div>
+        <p className="acc-wpm">{"ACC: " + " | " + "   " + "WPM: "}</p>
       </div>
     </div>
   )
