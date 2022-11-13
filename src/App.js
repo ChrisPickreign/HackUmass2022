@@ -39,37 +39,37 @@ function App() {
 
   function handleKeyPress(e) {
     let key = e.key;
-      if (key === "Enter"){
+    if (key === "Enter") {
+      return;
+    }
+    let obj = words[index];
+    let corKey = obj.word.charAt(obj.k);
+    if (key === " " && obj.k >= 0) {
+      document.getElementById('form1').reset();
+      if (obj.k === 0) {
         return;
       }
-      let obj = words[index];
-      let corKey = obj.word.charAt(obj.k);
-      if (key === " " && obj.k >= 0) {
-        document.getElementById('form1').reset();
-        if (obj.k === 0) {
-          return;
-        }
-        if (valUntilK(obj.k, index) && inputArr[index].length ===words[index].word){ // if true, whole word has been completed correctly
-
-        }
-        else{
-
-        }
-        ++index;
-        return;
-      }
-      inputArr[index] = inputArr[index].concat(key)
-      console.log(key);
-      console.log(valUntilK(obj.k, index));
-      if (valUntilK(obj.k, index)){ // if true, word up until this point is correct
+      if (valUntilK(obj.k, index) && inputArr[index].length === words[index].word) { // if true, whole word has been completed correctly
 
       }
-      else{
+      else {
 
       }
-      console.log("keyPress: " + index);
-      console.log(inputArr);
-      obj.k += 1;
+      ++index;
+      return;
+    }
+    inputArr[index] = inputArr[index].concat(key)
+    console.log(key);
+    console.log(valUntilK(obj.k, index));
+    if (valUntilK(obj.k, index)) { // if true, word up until this point is correct
+
+    }
+    else {
+
+    }
+    console.log("keyPress: " + index);
+    console.log(inputArr);
+    obj.k += 1;
 
   }
 
@@ -78,10 +78,10 @@ function App() {
     if (e.key === 'Backspace' && obj.k > 0) {
       --obj.k;
       inputArr[index] = inputArr[index].slice(0, -1);
-      if (valUntilK(obj.k, index)){ // if true, word up until this point is correct
+      if (valUntilK(obj.k, index)) { // if true, word up until this point is correct
 
       }
-      else{
+      else {
 
       }
       console.log("keyDown: " + index)
@@ -108,7 +108,8 @@ function App() {
     <div>
       <h1><TypewriterComponent
         onInit={(typewriter) =>
-          typewriter.typeString("finkytpye").start().pauseFor(pause).deleteAll()
+          typewriter.typeString('funkytype').start().pauseFor(pause).deleteAll()
+            .typeString("finkytpye").start().pauseFor(pause).deleteAll()
             .typeString('flimsytype').start().pauseFor(pause).deleteAll()
             .typeString('flimdtype').start().pauseFor(pause).deleteAll()
             .typeString('flankytype').start().pauseFor(pause).deleteAll()
@@ -124,7 +125,7 @@ function App() {
       <div>
         <p>{tempString}</p>
         <form id="form1">
-        <input className="text-box" type="text" onKeyPress={(e) => handleKeyPress(e)} onKeyDown={(e) => handleKeyDown(e)} autoFocus></input>
+          <input className="text-box" type="text" onKeyPress={(e) => handleKeyPress(e)} onKeyDown={(e) => handleKeyDown(e)} autoFocus></input>
         </form>
       </div>
       <div>
