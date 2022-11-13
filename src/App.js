@@ -144,9 +144,9 @@ function App() {
       <div>
         <p className="counter">{"" + index + "/" + 50}</p>
       </div>
-      <div>
-        <p className="acc-wpm">{"acc: " + " | " + "   " + "wpm: "}</p>
-      </div>
+       <div>
+        <p className="acc-wpm">{"accuracy: " + " | " + "   " + "wpm: "}</p>
+      </div> 
       <div>
         <button className="restart_btn"
           onClick={(e) => resetValues()}>
