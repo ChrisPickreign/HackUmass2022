@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import TypewriterComponent from "typewriter-effect";
 import "./App.css";
 
@@ -19,7 +19,7 @@ function App() {
   function selectWords(wordArr) {
     let returnArr = [];
     let indTracker = new Set();
-    while (returnArr.length < 10) {
+    while (returnArr.length < 50) {
       let indVal = Math.floor(Math.random() * wordArr.length);
       if (!indTracker.has(indVal)) {
         returnArr.push(wordArr[indVal]);
@@ -28,10 +28,6 @@ function App() {
     }
     return returnArr;
   }
-
- 
-
-
 
   function populateArray(arr) {
     return arr.map(wordObj);
@@ -60,7 +56,7 @@ function App() {
         // if true, whole word has been completed correctly
       } else {
       }
-      setIndex(index+1);
+      setIndex(index + 1);
       return;
     }
     inputArr[index] = inputArr[index].concat(key);
@@ -81,7 +77,6 @@ function App() {
     if (e.key === "Backspace" && obj.k > 0) {
       --obj.k;
       inputArr[index] = inputArr[index].slice(0, -1);
-
       if (valUntilK(obj.k, index)) {
         // if true, word up until this point is correct
       } else {
@@ -107,12 +102,12 @@ function App() {
   }
 
   function resetValues() {
-  let inputArr = new Array(50).fill("");
-  let ezWords = selectWords(easyWords);
-  let words = populateArray(ezWords);
-  setTempString(arrToString(ezWords));
-  setIndex(0);
-  document.getElementById("form1").reset();
+    let inputArr = new Array(50).fill("");
+    let ezWords = selectWords(easyWords);
+    let words = populateArray(ezWords);
+    setTempString(arrToString(ezWords));
+    setIndex(0);
+    document.getElementById("form1").reset();
   }
 
   return (
@@ -135,7 +130,7 @@ function App() {
       </h1>
       <div>
         <p>{tempString}</p>
-        <p>{index}</p>
+        {/* <p>{index}</p> */}
         <form id="form1">
           <input
             className="text-box"
@@ -150,13 +145,13 @@ function App() {
         <p className="counter">{"" + index + "/" + 50}</p>
       </div>
       <div>
-        <p className="acc-wpm">{"ACC: " + " | " + "   " + "WPM: "}</p>
+        <p className="acc-wpm">{"acc: " + " | " + "   " + "wpm: "}</p>
       </div>
       <div>
-      <button className="restart_btn"
-      onClick={(e)=>resetValues()}>
-      Restart
-    </button>
+        <button className="restart_btn"
+          onClick={(e) => resetValues()}>
+          restart
+        </button>
       </div>
     </div>
   );
