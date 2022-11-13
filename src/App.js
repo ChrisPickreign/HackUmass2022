@@ -112,6 +112,7 @@ function App() {
   let words = populateArray(ezWords);
   setTempString(arrToString(ezWords));
   setIndex(0);
+  document.getElementById("form1").reset();
   }
 
   return (
