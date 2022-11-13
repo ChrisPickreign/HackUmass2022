@@ -6,7 +6,7 @@ function App() {
   const data = require("./words_dictionary.json");
   let wordArr = Object.keys(data);
   let easyWords = wordArr.filter(x => x.length <= 5);
-  let mediumWords = wordArr.filter(x => x.length <= 8)
+  let mediumWords = wordArr.filter(x => x.length <= 8);
   let hardWords = wordArr.filter(x => x.length >= 10);
   let inputArr = new Array(50).fill("");
   let pause = 1000;
@@ -92,7 +92,6 @@ function App() {
   function arrToString(arr) {
     return arr.join(" ");
   }
-
 
   function valUntilK(k, index) {
     let returnVal = true;
