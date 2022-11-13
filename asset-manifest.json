@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/hack-umass-x/static/css/main.6a17a580.css",
+    "main.js": "/hack-umass-x/static/js/main.bde936d6.js",
+    "index.html": "/hack-umass-x/index.html",
+    "main.6a17a580.css.map": "/hack-umass-x/static/css/main.6a17a580.css.map",
+    "main.bde936d6.js.map": "/hack-umass-x/static/js/main.bde936d6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6a17a580.css",
+    "static/js/main.bde936d6.js"
+  ]
+}
