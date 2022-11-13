@@ -7,6 +7,9 @@ function App() {
   let easyWords = wordArr.filter(x => x.length <= 5);
   let mediumWords = wordArr.filter(x => x.length <= 8)
   let hardWords = wordArr.filter(x => x.length >= 10);
+  let inputArr = new Array(50).fill("");
+
+
 
   function selectWords(wordArr) {
     let returnArr = [];
@@ -23,17 +26,7 @@ function App() {
 
   let index = 0;
 
-  // function handleKeyPress(e) {
-  //   let key = e.key;
-  //   let corKey = tempString.charAt(index);
-  //   if (key === " " && corKey !== " ") {
-  //     return;
-  //   }
-  //   console.log(key);
-  //   console.log(corKey === key);
-  //   console.log("keyPress: " + index);
-  //   index = index+1;
-  // }
+
   function populateArray(arr) {
     return arr.map(wordObj);
   }
@@ -44,25 +37,30 @@ function App() {
 
   function handleKeyPress(e) {
     let key = e.key;
-    console.log(words);
     let obj = words[index];
     let corKey = obj.word.charAt(obj.k);
-    // if (key === " " && corKey !== " ") {
-    //   return;
-    // }
+     if (key === " " && obj.k >=0) {
+        if (obj.k === 0){
+          return;
+        }
+       ++index;
+       return;
+    }
+    inputArr[index] = inputArr[index].concat(key)
     console.log(key);
     console.log(corKey === key);
     console.log("keyPress: " + index);
+    console.log(inputArr);
     obj.k += 1;
-    if (obj.k === obj.word.length-1) {
-
-    }
   }
 
   function handleKeyDown(e) {
-    if (e.key === 'Backspace' && index > 0) {
-      index = index - 1;
+    let obj = words[index];
+    if (e.key === 'Backspace' && obj.k > 0) {
+      --obj.k;
+      inputArr[index] = inputArr[index].slice(0,-1);
       console.log("keyDown: " + index)
+      console.log(inputArr);
     }
   }
 
@@ -73,6 +71,16 @@ function App() {
   let ezWords = selectWords(easyWords);
   let words = populateArray(ezWords);
   let tempString = arrToString(ezWords);
+
+  function valUntilK(k, index){
+    let returnVal = true;
+    for (let i =0; i<=k; ++i){
+      if (inputArr[index].chartAt(i) !== words[index].word.charAt(i)){
+        returnVal = false;
+      }
+    }
+    return returnVal;
+  }
 
   return (
     <div>
