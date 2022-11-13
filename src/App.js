@@ -69,6 +69,7 @@ function App() {
     if (valUntilK(obj.k, index)) {
       // if true, word up until this point is correct
     } else {
+
     }
     console.log("keyPress: " + index);
     console.log(inputArr);
@@ -80,11 +81,13 @@ function App() {
     if (e.key === "Backspace" && obj.k > 0) {
       --obj.k;
       inputArr[index] = inputArr[index].slice(0, -1);
+
       if (valUntilK(obj.k, index)) {
         // if true, word up until this point is correct
       } else {
       }
       console.log("keyDown: " + index);
+
       console.log(inputArr);
     }
   }
@@ -113,50 +116,21 @@ function App() {
 
   return (
     <div>
-      <h1>
-        <TypewriterComponent
-          onInit={(typewriter) =>
-            typewriter
-              .typeString("finkytpye")
-              .start()
-              .pauseFor(pause)
-              .deleteAll()
-              .typeString("flimsytype")
-              .start()
-              .pauseFor(pause)
-              .deleteAll()
-              .typeString("flimdtype")
-              .start()
-              .pauseFor(pause)
-              .deleteAll()
-              .typeString("flankytype")
-              .start()
-              .pauseFor(pause)
-              .deleteAll()
-              .typeString("flirtytype")
-              .start()
-              .pauseFor(pause)
-              .deleteAll()
-              .typeString("fliarsytype")
-              .start()
-              .pauseFor(pause)
-              .deleteAll()
-              .typeString("flaetytype")
-              .start()
-              .pauseFor(pause)
-              .deleteAll()
-              .typeString("flintytype")
-              .start()
-              .pauseFor(pause)
-              .deleteAll()
-              .typeString("flype")
-              .start()
-              .pauseFor(pause)
-              .deleteAll()
-              .typeString("funkytype")
-              .start()
-          }
-        />
+      <h1><TypewriterComponent
+        onInit={(typewriter) =>
+          typewriter.typeString('funkytype').start().pauseFor(pause).deleteAll()
+            .typeString("finkytpye").start().pauseFor(pause).deleteAll()
+            .typeString('flimsytype').start().pauseFor(pause).deleteAll()
+            .typeString('flimdtype').start().pauseFor(pause).deleteAll()
+            .typeString('flankytype').start().pauseFor(pause).deleteAll()
+            .typeString('flirtytype').start().pauseFor(pause).deleteAll()
+            .typeString('fliarsytype').start().pauseFor(pause).deleteAll()
+            .typeString('flaetytype').start().pauseFor(pause).deleteAll()
+            .typeString('flintytype').start().pauseFor(pause).deleteAll()
+            .typeString('flype').start().pauseFor(pause).deleteAll()
+            .typeString('funkytype').start()
+        }
+      />
       </h1>
       <div>
         <p>{tempString}</p>
