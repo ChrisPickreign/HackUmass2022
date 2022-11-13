@@ -21,7 +21,7 @@ p{
 }
 .text-box{
    width: 700px;
-   height: 150px;
+   height: 25px;
    border-radius: 10px;
    position: inherit;
    font-size: 25px;
@@ -30,6 +30,7 @@ p{
    margin-bottom: 10px;
    color: rgb(219, 216, 216);
    resize: none;
+   border-color: transparent;
 }
 
 .counter{
