@@ -35,21 +35,26 @@ function App() {
 
   function handleKeyPress(e) {
     let key = e.key;
-    let obj = words[index];
-    let corKey = obj.word.charAt(obj.k);
-    if (key === " " && obj.k >= 0) {
-      if (obj.k === 0) {
+      if (key === "Enter"){
         return;
       }
-      ++index;
-      return;
-    }
-    inputArr[index] = inputArr[index].concat(key)
-    console.log(key);
-    console.log(corKey === key);
-    console.log("keyPress: " + index);
-    console.log(inputArr);
-    obj.k += 1;
+      let obj = words[index];
+      let corKey = obj.word.charAt(obj.k);
+      if (key === " " && obj.k >= 0) {
+
+        if (obj.k === 0) {
+          return;
+        }
+        ++index;
+        return;
+      }
+      inputArr[index] = inputArr[index].concat(key)
+      console.log(key);
+      console.log(valUntilK(obj.k, index));
+      console.log("keyPress: " + index);
+      console.log(inputArr);
+      obj.k += 1;
+
   }
 
   function handleKeyDown(e) {
@@ -73,7 +78,7 @@ function App() {
   function valUntilK(k, index) {
     let returnVal = true;
     for (let i = 0; i <= k; ++i) {
-      if (inputArr[index].chartAt(i) !== words[index].word.charAt(i)) {
+      if (inputArr[index].charAt(i) !== words[index].word.charAt(i)) {
         returnVal = false;
       }
     }
