@@ -109,6 +109,9 @@ function App() {
       <div>
         <p className="counter">{"" + index + "/" + 50}</p>
       </div>
+      <div>
+        <p className="acc-wpm">{"ACC: " + " | " + "   " + "WPM: "}</p>
+      </div>
     </div>
   )
 }
