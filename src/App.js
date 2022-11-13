@@ -41,7 +41,7 @@ function App() {
       let obj = words[index];
       let corKey = obj.word.charAt(obj.k);
       if (key === " " && obj.k >= 0) {
-
+        document.getElementById('form1').reset();
         if (obj.k === 0) {
           return;
         }
@@ -104,7 +104,9 @@ function App() {
       </h1>
       <div>
         <p>{tempString}</p>
+        <form id="form1">
         <input className="text-box" type="text" onKeyPress={(e) => handleKeyPress(e)} onKeyDown={(e) => handleKeyDown(e)} autoFocus></input>
+        </form>
       </div>
       <div>
         <p className="counter">{"" + index + "/" + 50}</p>
