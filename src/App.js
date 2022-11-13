@@ -1,5 +1,6 @@
 import React from "react";
 import TypewriterComponent from "typewriter-effect";
+import './App.css';
 
 
 function App() {
@@ -48,18 +49,31 @@ function App() {
   }
 
   let tempString = arrToString(selectWords(easyWords));
-
+  let pause = 1000; 
   return (
     <div>
       <h1><TypewriterComponent
         onInit={(typewriter) =>
-          typewriter.typeString("funkytype").start()
+          typewriter.typeString("finkytpye").start().pauseFor(pause).deleteAll()
+          .typeString('flimsytype').start().pauseFor(pause).deleteAll()
+          .typeString('flimdtype').start().pauseFor(pause).deleteAll()
+          .typeString('flankytype').start().pauseFor(pause).deleteAll()
+          .typeString('flirtytype').start().pauseFor(pause).deleteAll()
+          .typeString('fliarsytype').start().pauseFor(pause).deleteAll()
+          .typeString('flaetytype').start().pauseFor(pause).deleteAll()
+          .typeString('flintytype').start().pauseFor(pause).deleteAll()
+          .typeString('flype').start().pauseFor(pause).deleteAll()
+          .typeString('funkytype').start()
         }
       />
       </h1>
-      <p>{tempString}</p>
-      <p>{"" + index + "/" + 50}</p>
-      <input type="text" onKeyPress={(e) => handleKeyPress(e)} onKeyDown={(e) => handleKeyDown(e)}/>
+      <div>
+        <p>{tempString}</p>
+        <textarea class = "text-box" type="text" onKeyPress={(e) => handleKeyPress(e)} onKeyDown={(e) => handleKeyDown(e)} autofocus></textarea>
+      </div>
+      <div>
+        <p1 class = "counter">{"" + index + "/" + 50}</p1>
+      </div>
     </div>
   )
 }

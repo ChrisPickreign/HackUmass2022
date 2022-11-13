@@ -1,0 +1,42 @@
+@import "https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;700&display=swap";
+body{
+    background-color: rgb(105, 97, 97);
+    color: rgb(31, 29, 29);
+    padding: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    min-height: 100vh;
+}
+
+p{
+    color: rgb(219, 216, 216);
+    padding: 20px;
+    background-color: transparent;
+    width: 800px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 25px;
+}
+.text-box{
+   width: 700px;
+   height: 150px;
+   border-radius: 10px;
+   position: inherit;
+   font-size: 25px;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   background-color: transparent;
+   margin-bottom: 50px;
+   color: rgb(25, 25, 25);
+   resize: none;
+}
+
+p1{
+    font-size: 40px;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: transparent;
+}
+
+
+
