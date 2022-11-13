@@ -10,8 +10,6 @@ function App() {
   let hardWords = wordArr.filter(x => x.length >= 10);
   let inputArr = new Array(50).fill("");
 
-
-
   function selectWords(wordArr) {
     let returnArr = [];
     let indTracker = new Set();
@@ -26,7 +24,6 @@ function App() {
   }
 
   let index = 0;
-
 
   function populateArray(arr) {
     return arr.map(wordObj);
@@ -102,7 +99,7 @@ function App() {
       </h1>
       <div>
         <p>{tempString}</p>
-        <textarea className="text-box" type="text" onKeyPress={(e) => handleKeyPress(e)} onKeyDown={(e) => handleKeyDown(e)} autoFocus></textarea>
+        <input className="text-box" type="text" onKeyPress={(e) => handleKeyPress(e)} onKeyDown={(e) => handleKeyDown(e)} autoFocus></input>
       </div>
       <div>
         <p className="counter">{"" + index + "/" + 50}</p>
