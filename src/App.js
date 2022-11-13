@@ -9,6 +9,10 @@ function App() {
   let mediumWords = wordArr.filter(x => x.length <= 8)
   let hardWords = wordArr.filter(x => x.length >= 10);
   let inputArr = new Array(50).fill("");
+  let pause = 1000;
+  let ezWords = selectWords(easyWords);
+  let words = populateArray(ezWords);
+  let tempString = arrToString(ezWords);
 
   function selectWords(wordArr) {
     let returnArr = [];
@@ -45,12 +49,24 @@ function App() {
         if (obj.k === 0) {
           return;
         }
+        if (valUntilK(obj.k, index) && inputArr[index].length ===words[index].word){ // if true, whole word has been completed correctly
+
+        }
+        else{
+
+        }
         ++index;
         return;
       }
       inputArr[index] = inputArr[index].concat(key)
       console.log(key);
       console.log(valUntilK(obj.k, index));
+      if (valUntilK(obj.k, index)){ // if true, word up until this point is correct
+
+      }
+      else{
+
+      }
       console.log("keyPress: " + index);
       console.log(inputArr);
       obj.k += 1;
@@ -62,6 +78,12 @@ function App() {
     if (e.key === 'Backspace' && obj.k > 0) {
       --obj.k;
       inputArr[index] = inputArr[index].slice(0, -1);
+      if (valUntilK(obj.k, index)){ // if true, word up until this point is correct
+
+      }
+      else{
+
+      }
       console.log("keyDown: " + index)
       console.log(inputArr);
     }
@@ -70,10 +92,7 @@ function App() {
   function arrToString(arr) {
     return arr.join(" ");
   }
-  let pause = 1000;
-  let ezWords = selectWords(easyWords);
-  let words = populateArray(ezWords);
-  let tempString = arrToString(ezWords);
+
 
   function valUntilK(k, index) {
     let returnVal = true;
